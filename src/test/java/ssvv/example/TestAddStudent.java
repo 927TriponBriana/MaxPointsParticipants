@@ -1,6 +1,5 @@
 package ssvv.example;
 
-import domain.Student;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,17 +48,50 @@ public class TestAddStudent {
     }
 
     @Test
-    public void testSaveStudentSuccess() {
-        int result = service.saveStudent("5", "Antonia", 937);
+    public void saveStudent_validInput_successfullySaved() {
+        int result = service.saveStudent("5", "Maria", 937);
 
-        assertEquals(1, result, "Student should be successfully saved and method should return 1");
+        assertEquals(1, result);
     }
 
     @Test
-    public void testSaveStudentFailureDueToDuplicate() {
-        service.saveStudent("1", "Ana", 931);
-        int result = service.saveStudent("1", "Ana", 931);
+    public void saveStudent_existingID_notSaved(){
+        int firstSaveResult = service.saveStudent("1", "Maria", 931);
+        assertEquals(1, firstSaveResult);
 
-        assertEquals(0, result, "Attempt to save a duplicate student should fail and return 0");
+        int secondSaveResult = service.saveStudent("1", "Maria", 931);
+        assertEquals(0, secondSaveResult);
     }
+
+    @Test
+    public void saveStudent_nullID_exceptionThrown() {
+        int result = service.saveStudent(null, "Maria", 931);
+        assertEquals(1, result);
+
+    }
+
+    @Test
+    public void saveStudent_emptyID_exceptionThrown() {
+        int result = service.saveStudent("", "Maria", 931);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void saveStudent_nullName_exceptionThrown() {
+        int result = service.saveStudent("2", null, 931);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void saveStudent_emptyName_exceptionThrown() {
+        int result = service.saveStudent("3", "", 931);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void saveStudent_invalidGroup_exceptionThrown() {
+        int result = service.saveStudent("4", "Maria", -931);
+        assertEquals(1, result);
+    }
+
 }
