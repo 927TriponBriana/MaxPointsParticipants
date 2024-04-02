@@ -48,14 +48,14 @@ public class TestAddStudent {
     }
 
     @Test
-    public void saveStudent_validInput_successfullySaved() {
+    public void tc1_saveStudent_validInput_successfullySaved() {
         int result = service.saveStudent("5", "Maria", 937);
 
         assertEquals(1, result);
     }
 
     @Test
-    public void saveStudent_existingID_notSaved(){
+    public void tc2_saveStudent_existingID_notSaved(){
         int firstSaveResult = service.saveStudent("1", "Maria", 931);
         assertEquals(1, firstSaveResult);
 
@@ -64,32 +64,32 @@ public class TestAddStudent {
     }
 
     @Test
-    public void saveStudent_nullID_exceptionThrown() {
+    public void tc3_saveStudent_nullID_exceptionThrown() {
         int result = service.saveStudent(null, "Maria", 931);
         assertEquals(1, result);
 
     }
 
     @Test
-    public void saveStudent_emptyID_exceptionThrown() {
+    public void tc4_saveStudent_emptyID_exceptionThrown() {
         int result = service.saveStudent("", "Maria", 931);
         assertEquals(1, result);
     }
 
     @Test
-    public void saveStudent_nullName_exceptionThrown() {
+    public void tc5_saveStudent_nullName_exceptionThrown() {
         int result = service.saveStudent("2", null, 931);
         assertEquals(1, result);
     }
 
     @Test
-    public void saveStudent_emptyName_exceptionThrown() {
+    public void tc6_saveStudent_emptyName_exceptionThrown() {
         int result = service.saveStudent("3", "", 931);
         assertEquals(1, result);
     }
 
     @Test
-    public void saveStudent_invalidGroup_exceptionThrown() {
+    public void tc7_saveStudent_invalidGroup_exceptionThrown() {
         int result = service.saveStudent("4", "Maria", -931);
         assertEquals(1, result);
     }
