@@ -4,4 +4,8 @@
         <Nume>Maria</Nume>
         <Grupa>931</Grupa>
     </student>
+    <student ID="5">
+        <Nume>Maria</Nume>
+        <Grupa>937</Grupa>
+    </student>
 </Entitati>

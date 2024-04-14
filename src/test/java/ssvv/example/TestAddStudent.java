@@ -61,32 +61,32 @@ public class TestAddStudent {
     @Test
     public void tc3_saveStudent_nullID_exceptionThrown() {
         int result = service.saveStudent(null, "Maria", 931);
-        assertEquals(1, result);
+        assertEquals(-1, result);
 
     }
 
     @Test
     public void tc4_saveStudent_emptyID_exceptionThrown() {
         int result = service.saveStudent("", "Maria", 931);
-        assertEquals(1, result);
+        assertEquals(-1, result);
     }
 
     @Test
     public void tc5_saveStudent_nullName_exceptionThrown() {
         int result = service.saveStudent("2", null, 931);
-        assertEquals(1, result);
+        assertEquals(-1, result);
     }
 
     @Test
     public void tc6_saveStudent_emptyName_exceptionThrown() {
         int result = service.saveStudent("3", "", 931);
-        assertEquals(1, result);
+        assertEquals(-1, result);
     }
 
     @Test
     public void tc7_saveStudent_invalidGroup_exceptionThrown() {
         int result = service.saveStudent("4", "Maria", -931);
-        assertEquals(1, result);
+        assertEquals(-1, result);
     }
 
 }
