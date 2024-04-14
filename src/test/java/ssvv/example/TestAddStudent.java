@@ -42,11 +42,6 @@ public class TestAddStudent {
         this.service = new Service(this.studentFileRepository, null, null);
     }
 
-//    @AfterAll
-//    static void removeXML() {
-//        new File("fisiere/studentiTest.xml").delete();
-//    }
-
     @Test
     public void tc1_saveStudent_validInput_successfullySaved() {
         int result = service.saveStudent("5", "Maria", 937);
