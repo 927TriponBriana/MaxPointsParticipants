@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import repository.TemaXMLRepository;
 import service.Service;
 import validation.TemaValidator;
-import validation.ValidationException;
 
 import java.io.BufferedWriter;
 import java.io.File;
